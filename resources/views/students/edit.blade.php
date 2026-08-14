@@ -13,7 +13,7 @@
  
       <p class="mt-1 text-sm text-slate-500">Memperbarui catatan atas nama <span
  
-class="font-medium text-[#16213A]">Budi Ariyanto</span>.</p>
+class="font-medium text-[#16213A]">Budi</span>.</p>
  
     </div>
  

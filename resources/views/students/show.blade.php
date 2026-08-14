@@ -17,7 +17,7 @@
  
           <p class="mb-1 text-[11px] uppercase tracking-[0.2em] text-[#A16207]">Lembar Siswa</p>
  
-          <h1 class="font-display text-3xl font-semibold text-[#16213A]">Budi Ariyanto</h1>
+          <h1 class="font-display text-3xl font-semibold text-[#16213A]">Budi Simanjuntak</h1>
  
           <p class="mt-1 font-mono text-xs text-slate-500">NIS 2024001</p>
  
@@ -45,7 +45,7 @@ class="bg-[#16213A] px-5 py-2.5 text-sm font-medium text-white transition hover:
  
           <dt class="uppercase tracking-[0.1em] text-xs text-slate-400">Nama Lengkap</dt>
  
-          <dd class="font-medium text-[#16213A]">Budi Ariyanto</dd>
+          <dd class="font-medium text-[#16213A]">Budi Simanjuntak</dd>
  
         </div>
  

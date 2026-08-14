@@ -1,128 +1,136 @@
-@extends('layouts.app')
+ @extends('layouts.app')
+ @section('title', $title)
+ @section('content')
  
-@section('title', $title)
+     <div class="mb-8 border-b border-[#E5E3DB] pb-5">
  
-@section('content')
-    <div class="mb-8 border-b border-[#E5E3DB] pb-5">
+       <a href="{{ route('teachers.index') }}" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
  
-      <a href="" class="text-xs uppercase tracking-[0.15em] text-slate-400 hover:text-[#A16207]">&larr; Buku
+         Induk</a>
  
-        Induk</a>
+       <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">Catat Guru Baru</h1>
  
-      <h1 class="font-display mt-2 text-3xl font-semibold text-[#16213A]">Catat Siswa Baru</h1>
+       <p class="mt-1 text-sm text-slate-500">Isi data untuk mendaftarkan guru ke buku induk.</p>
  
-      <p class="mt-1 text-sm text-slate-500">Isi data untuk mendaftarkan siswa ke buku induk.</p>
+     </div>
  
-    </div>
  
  
+     <form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
  
-    <form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
  
  
+       <div>
  
-      <div>
+         <label for="nip"
  
-        <label for="nis"
+           class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">NIP </label>
  
-class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">NIS</label>
+         <input type="text" id="nip" name="nip" placeholder="198501012024"
  
-        <input type="text" id="nis" name="nis" placeholder="Contoh: 2024010"
+           class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
  
-class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
+       </div>
  
-      </div>
  
  
+       <div>
  
-      <div>
+         <label for="name"
  
-        <label for="name"
+           class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Nama
  
-class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Nama
+           Lengkap</label>
  
-          Lengkap</label>
+         <input type="text" id="name" name="name" placeholder="Budi Santoso"
  
-        <input type="text" id="name" name="name" placeholder="Nama lengkap siswa"
+           class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
  
-class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
+       </div>
  
-      </div>
  
  
+       <div>
  
-      <div>
+         <label for="gender"
  
-        <label for="gender"
+           class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Jenis
  
-class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Jenis
+           Kelamin</label>
  
-          Kelamin</label>
+         <select id="gender" name="gender" placeholder="L"
  
-        <select id="gender" name="gender"
+           class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
  
-class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
+           <option placeholder="L">Laki-laki</option>
  
-          <option value="L">Laki-laki</option>
+           <option placeholder="P">Perempuan</option>
  
-          <option value="P">Perempuan</option>
+         </select>
  
-        </select>
+       </div>
  
-      </div>
  
  
+       <div>
  
-      <div>
+         <label for="subject"
  
-        <label for="major"
+           class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Subjek</label>
  
-class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Jurusan</label>
+         <input type="text" id="subject" name="subject" placeholder="Akuntansi Dasar"
  
-        <select id="major" name="major"
+           class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
  
-class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
  
-          <option value="">Pilih jurusan</option>
+       </div>
  
-          <option value="">AKL</option>
  
-          <option value="">TKJ</option>
  
-          <option value="">BiD</option>
+       <div>
  
-        </select>
+         <label for="phone"
  
-      </div>
+           class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Nomor Telepon</label>
  
+         <input type="text" id="phone" name="phone" placeholder="081234560001"
  
+           class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
  
-      <div>
+       </div>
  
-        <label for="class"
+       <div>
  
-class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Kelas</label>
+         <label for="status"
  
-        <input type="text" id="class" name="class" placeholder="Contoh: X AKL 1"
+           class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Status</label>
  
-class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
+         <select id="status" name="status" placeholder="aktif"
  
-      </div>
+           class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
  
+           <option placeholder="aktif">Aktif</option>
  
+           <option placeholder="tidak_aktif">Tidak Aktif</option>
  
-      <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">
+         </select>
  
-        <a href="#" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Batal</a>
+       </div>
  
-        <button type="submit"
  
-class="bg-[#16213A] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Simpan
  
-          ke Buku Induk</button>
+       <div class="flex justify-end gap-4 border-t border-[#EFEDE6] pt-6">
  
-      </div>
+         <a href="{{ route('teachers.index') }}" class="px-4 py-2.5 text-sm font-medium text-slate-500 hover:text-[#16213A]">Batal</a>
  
-    </form>
-@endsection
+         <button type="submit"
+ 
+           class="bg-[#16213A] px-6 py-2.5 text-sm font-medium text-white transition hover:bg-[#26324f]">Simpan
+ 
+           ke Buku Induk</button>
+ 
+       </div>
+ 
+     </form>
+     @endsection
  
