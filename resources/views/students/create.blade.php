@@ -17,8 +17,8 @@
  
  
  
-    <form action="" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
- 
+    <form action="{{ router('students.store') }}" method="POST" class="space-y-6 border border-[#E5E3DB] bg-white p-8">
+    @csrf
  
  
       <div>
@@ -27,10 +27,12 @@
  
 class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">NIP</label>
  
-        <input type="text" id="nis" name="nip" placeholder="Contoh: 198501012024"
+        <input value="{{ old('nis') }}" type="text" id="nis" name="nip" placeholder="Contoh: 198501012024"
  
 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
- 
+ @error('nis')
+ <span class="text-red-500 py-2">{{ $message }}</span>
+ @enderror
       </div>
  
  
@@ -43,10 +45,12 @@ class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#1621
  
           Lengkap</label>
  
-        <input type="text" id="name" name="name" placeholder="Nama lengkap guru"
+        <input value="{{ old('name') }}" type="text" id="name" name="name" placeholder="Nama lengkap guru"
  
 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
- 
+  @error('name')
+ <span class="text-red-500 py-2">{{ $message }}</span>
+ @enderror
       </div>
  
  
@@ -63,12 +67,16 @@ class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#1621
  
 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:border-[#A16207] focus:bg-white focus:outline-none">
  
-          <option value="L">Laki-laki</option>
+          <option value="">Pilih Gender</option>
+
+          <option @selected(old('gender') === 'Laki-laki') value="Laki-laki">Laki-laki</option>
  
-          <option value="P">Perempuan</option>
+          <option @selected(old('gender') === 'Perempuan')value="Perempuan">Perempuan</option>
  
         </select>
- 
+  @error('gender')
+ <span class="text-red-500 py-2">{{ $message }}</span>
+ @enderror
       </div>
  
  
@@ -85,12 +93,16 @@ class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:b
  
           <option value="">Pilih mata prlajaran</option>
  
-          <option value="">AKL</option>
+          <option @selected(old('major') === 'AKL')value="AKL">AKL</option>
  
-          <option value="">TKJ</option>
+          <option @selected(old('major') === 'TKJ')value="TKJ">TKJ</option>
+
+          <option @selected(old('major') === 'BID')value="BID">BID</option>
  
         </select>
- 
+  @error('major')
+ <span class="text-red-500 py-2">{{ $message }}</span>
+ @enderror
       </div>
  
  
@@ -101,10 +113,12 @@ class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm focus:b
  
 class="mb-1.5 block text-xs font-semibold uppercase tracking-[0.1em] text-[#16213A]">Kelas</label>
  
-        <input type="text" id="class" name="class" placeholder="Contoh: X AKL 1"
+        <input value="{{ old('class') }}" type="text" id="class" name="class" placeholder="Contoh: X AKL 1"
  
 class="w-full border border-[#D9D6CD] bg-[#FCFBF8] px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus:border-[#A16207] focus:bg-white focus:outline-none">
- 
+  @error('class')
+ <span class="text-red-500 py-2">{{ $message }}</span>
+ @enderror
       </div>
  
  
