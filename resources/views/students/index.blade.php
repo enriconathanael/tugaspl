@@ -97,7 +97,7 @@
  
                     </tr>
 
-                     @empty($students)
+                     @empty
                      <tr>
                         <td colspan="6" class="text-center p-4">Data siswa tidak tersedia</td>
                      </tr>
