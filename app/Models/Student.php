@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use File;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 #[File('nis', 'name', 'gender', 'major', 'class')]
@@ -10,5 +11,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    
+    use HasFactory;
 }
