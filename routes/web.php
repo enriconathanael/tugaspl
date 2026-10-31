@@ -13,20 +13,21 @@ use App\Http\Controllers\SchoolClass\UpdateController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [AuthController::class, 'loginView'])->name('login-view');
-Route::post('/login', [AuthController::class, 'loginPost'])->name('login-post');
-Route::get('/register', [AuthController::class, 'registerView'])->name('register-view');
-Route::post('/register', [AuthController::class, 'registerPost'])->name('regsiter-post');
-
+Route::get('/login', [AuthController::class, 'loginView'])->name('login-view')->middleware('guest');
+Route::post('/login', [AuthController::class, 'loginPost'])->name('login-post')->middleware('guest');
+Route::get('/register', [AuthController::class, 'registerView'])->name('register-view')->middleware('guest');
+Route::post('/register', [AuthController::class, 'registerPost'])->name('regsiter-post')->middleware('guest');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 // Manajemen Data Siswa (Action Controller)
-Route::name('students.')->prefix('students')->group(function () {
+Route::name('students.')->middleware(['role:student,teacher', 'auth'])->prefix('students')->group(function () {
 
     // Halaman Daftar Siswa
     Route::get('/', [StudentController::class, 'index'])->name('index');
@@ -52,7 +53,7 @@ Route::name('students.')->prefix('students')->group(function () {
 });
 
 //Management Data Guru (Action)
-Route::name('teachers.')->prefix('teachers')->group(function () {
+Route::name('teachers.')->middleware(['role:teacher', 'auth'])->prefix('teachers')->group(function () {
 
     //Halaman Daftar Siswa
     Route::get('/', [TeacherController::class, 'index'])->name('index');
@@ -77,7 +78,7 @@ Route::name('teachers.')->prefix('teachers')->group(function () {
 });
 
 //Management Data Guru (Action)
-Route::name('classes.')->prefix('classes')->group(function () {
+Route::name('classes.')->middleware(['role:teacher', 'auth'])->prefix('classes')->group(function () {
 
     //Halaman Daftar Siswa
     Route::get('/', IndexController::class)->name('index');
@@ -101,5 +102,5 @@ Route::name('classes.')->prefix('classes')->group(function () {
     Route::delete('/{id}', DestroyController::class)->name('destroy');
 });
 
-Route::resource('majors', MajorController::class);
+Route::resource('majors', MajorController::class)->middleware(['role:teacher', 'auth']);
 
